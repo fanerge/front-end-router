@@ -31,7 +31,6 @@ class HashRouters {
 	
 	// 刷新
 	refresh(){
-		// debugger
 		let array = Object.keys(this.routers);
 		// 获取当前URL中的hash部分
 		this.currentUrl = window.location.hash.slice(1) || '/';
@@ -42,11 +41,17 @@ class HashRouters {
 				// 此操作来避免当点击后退按钮之后,再进行正常跳转,指针会停留在原地,而数组添加新hash路由
 				// 避免再次造成指针的不匹配,我们直接截取指针之前的数组
 				// 此操作同时与浏览器自带后退功能的行为保持一致
-				if(this.currentIndex <= this.history.length - 1){
+				if(this.currentIndex === this.history.length - 1){
 					this.history = this.history.slice(0, this.currentIndex + 1);
 					this.history.push(this.currentUrl);
 					this.currentIndex++;
 				}
+				
+				if(this.currentIndex < this.history.length - 1){
+					this.history = this.history.splice(this.currentIndex, 0, this.currentUrl );
+					this.currentIndex++;
+				}
+				
 				this.routers[this.currentUrl]();
 				console.log('指针:', this.currentIndex, 'history:', this.history);
 				this.isBack = false;
@@ -57,7 +62,6 @@ class HashRouters {
 			alert('该path不在该应用中，我们将开发404页面代替')
 		}
 		// 执行当前hash路径的callback函数
-		
 	}
 	
 	// 前进
