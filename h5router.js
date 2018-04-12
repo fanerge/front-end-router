@@ -19,7 +19,7 @@ class H5Routers {
 	// 触发路由对应回调
 	go(path){
 		 history.pushState({path: path}, null, path);
-		this.routes[path] && this.routes[path]();
+		this.routers[path] && this.routes[path]();
 	}
 	
 	// 监听popstate事件
