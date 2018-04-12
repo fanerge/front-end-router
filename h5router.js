@@ -40,13 +40,13 @@ function changeBgColor(color) {
   content.style.backgroundColor = color;
 }
 
-Router.route('/', function() {
+Router.route('/front-end-router/', function() {
   changeBgColor('yellow');
 });
-Router.route('/blue', function() {
+Router.route('/front-end-router/blue', function() {
   changeBgColor('blue');
 });
-Router.route('/green', function() {
+Router.route('/front-end-router/green', function() {
   changeBgColor('green');
 });
 
