@@ -19,14 +19,14 @@ class H5Routers {
 	// 触发路由对应回调
 	go(path){
 		 history.pushState({path: path}, null, path);
-		this.routers[path] && this.routes[path]();
+		this.routers[path] && this.routers[path]();
 	}
 	
 	// 监听popstate事件
 	_bindPopState(){
 		window.addEventListener('popstate', e => {
 			const path = e.state && e.state.path;
-			this.routes[path] && this.routes[path]();
+			this.routers[path] && this.routers[path]();
 		});
 	}
 }
