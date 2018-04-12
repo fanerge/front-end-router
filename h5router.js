@@ -14,7 +14,6 @@ class H5Routers {
 	
 	// 将路径和对应回调函数加入hashMap储存
 	route(path, callback){
-		debugger;
 		this.routers[path] = callback || function(){};
 	}
 	
