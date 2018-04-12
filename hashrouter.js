@@ -10,7 +10,6 @@ class HashRouters {
 		this.currentIndex = this.history.length - 1;
 		
 		// 绑定事件的this为该实例
-		this.route = this.route.bind(this);
 		this.refresh = this.refresh.bind(this);
 		// 前进和后退
 		// 默认不可能有前进和后退动作

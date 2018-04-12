@@ -20,11 +20,19 @@ class H5Routers {
 	
 	// 触发路由对应回调
 	go(path){
-		 history.pushState({path: path}, null, path);
+		history.pushState({path: path}, null, path);
 		this.routers[path] && this.routers[path]();
 	}
 	
+	// forward
+	forward(){
+		history.forward()
+	}
 	
+	// back
+	back(){
+		history.back()
+	}
 	
 	// 监听popstate事件
 	_bindPopState(){
@@ -40,6 +48,8 @@ Router = new H5Routers();
 Router.init(location.pathname);
 const content = document.querySelector('body');
 const ul = document.querySelector('ul');
+const forward = document.querySelector('#forward');
+const back = document.querySelector('#back');
 function changeBgColor(color) {
   content.style.backgroundColor = color;
 }
@@ -62,8 +72,8 @@ ul.addEventListener('click', e => {
   }
 });
 
-
-
+forward.addEventListener('click', Router.forward, false);
+back.addEventListener('click', Router.back, false);
 
 
 
