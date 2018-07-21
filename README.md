@@ -12,5 +12,5 @@
 3.	由于 history 对象 的 PushState 和 replaceState 只能添加和修改历史记录中的条目并不会触发 popstate 上的回调函数，所以我们需要用用代码触发对应的回调函数。
 4.	具体原理可参见代码中的注释。
 
-[点击这里查看demo](https://fanerge.github.io/front-end-router/)<br/>
+[demo演示地址](https://fanerge.github.io/front-end-router/index.html)<br/>
 [MDN-popstate](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/onpopstate)
